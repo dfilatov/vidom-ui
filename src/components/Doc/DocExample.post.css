@@ -1,0 +1,30 @@
+@import './DocCode.post.css';
+
+:block(DocExample) {
+    &+& {
+        margin-top: 20px;
+    }
+
+    &:elem(title) {
+        margin: 0;
+        font-size: 15px;
+    }
+
+    &:elem(content) {
+        margin: 10px 0 0;
+    }
+
+    &:elem(code-toggle) {
+        margin-left: 10px;
+        vertical-align: top;
+        color: #999;
+        cursor: pointer;
+        font-family: Verdana;
+        font-size: 10px;
+        font-weight: normal;
+
+        &:hover {
+            color: red;
+        }
+    }
+}

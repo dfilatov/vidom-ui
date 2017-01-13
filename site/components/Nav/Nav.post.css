@@ -1,0 +1,91 @@
+:block(Nav) {
+    position: fixed;
+    z-index: 3;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    transition: background .1s, width .1s, height .1s;
+
+    &:elem(toggle) {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 50px;
+        height: 46px;
+        background: url(./toggle.svg) center center no-repeat;
+    }
+
+    &:elem(list) {
+        float: right;
+        height: 100%;
+        overflow: auto;
+        background: #212121;
+        list-style: none;
+        margin: 0;
+        padding: 0 0 5px 0;
+        box-sizing: border-box;
+        transform: translateX(100%);
+        transition: transform .1s;
+    }
+
+    &:mod(visibleOnSmallScreen) {
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, .2);
+
+        & :block(Nav) {
+            &:elem(list) {
+                transform: translateX(0);
+            }
+
+            &:elem(toggle) {
+                display: none;
+            }
+        }
+    }
+
+    &:elem(item) {
+        font-size: 16px;
+        color: #fff;
+        transition: background .1s;
+
+        &:mod(selected) {
+            padding: 10px 15px;
+            background: #484646;
+        }
+    }
+
+    & :block(DocLink) {
+        display: block;
+        padding: 10px 15px;
+        color: #a6a6a6;
+        text-decoration: none;
+        outline: none;
+        transition: color .2s;
+
+        &:hover
+        {
+            color: #fff;
+        }
+    }
+}
+
+@media(min-width: 700px) {
+    :block(Nav) {
+        position: relative;
+        height: auto;
+        width: 150px;
+        background: none;
+
+        &:elem(toggle) {
+            display: none;
+        }
+
+        &:elem(list) {
+            position: absolute;
+            float: none;
+            transform: translateX(0);
+        }
+    }
+}

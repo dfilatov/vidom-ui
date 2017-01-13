@@ -1,0 +1,144 @@
+:block(MenuItem):mod(theme islands) {
+    position: relative;
+
+    white-space: nowrap;
+
+    &:block(MenuItem):mod(disabled) {
+        opacity: 0.3;
+    }
+
+    :block(link):mod(disabled) {
+        cursor: text;
+    }
+
+    &:block(MenuItem):mod(checked) {
+        background: 0 50% no-repeat url(../../../CheckBox/themes/islands/tip.svg);
+    }
+
+    &:block(MenuItem):mod(hovered) {
+        cursor: pointer;
+
+        background-color: #ffeba0;
+    }
+
+    &:block(MenuItem):mod(type link) {
+        :block(link) {
+            text-decoration: none;
+
+            color: inherit;
+            outline: none;
+
+            /* Fit clickable area to `MenuItem` size */
+            &:after {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+
+                content: '';
+            }
+        }
+    }
+}
+
+@each $size, $paddingLeft, $paddingVert, $paddingHor, $tipSize in
+(s,    m,    l,    xl),   /* size */
+(30px, 30px, 34px, 40px), /* paddingLeft */
+(3px,  4px,  5px,  6px),  /* paddingVert */
+(10px, 13px, 15px, 20px), /* paddingHor */
+(14px, 14px, 15px, 15px)  /* tipSize */ {
+    :block(Menu):mod(size $size) {
+        :block(MenuItem):mod(theme islands) {
+            padding: 0 $paddingHor;
+
+            background-size: $tipSize $tipSize;
+            background-position: $paddingHor 50%;
+        }
+
+        :block(MenuItemGroup) + :block(MenuItem):mod(theme islands) {
+            margin-top: $paddingVert;
+        }
+
+        &[class*='Menu:mod(mode)'] :block(MenuItem):mod(theme islands),
+        :block(MenuItemGroup):elem(title) ~ :block(MenuItem):mod(theme islands) {
+            padding: 0 $paddingLeft;
+        }
+    }
+}
+
+:block(Menu):mod(theme islands) {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    box-sizing: border-box;
+
+    user-select: none;
+
+    outline: 0;
+    background: #fff;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    /* Using pseudo-elements intead of paddings because of Firefox bug with bottom padding (#1158):
+     * https://bugzilla.mozilla.org/show_bug.cgi?id=748518 */
+    &:before,
+    &:after {
+        display: block;
+
+        content: '';
+    }
+
+    @each $size, $fontSize, $lineHeight, $paddingVert, $paddingHor in
+    (s,    m,    l,    xl),
+    (13px, 13px, 15px, 15px),  /* fontSize */
+    (24px, 24px, 28px, 32px,), /* lineHeight */
+    (3px,  4px,  5px,  6px),   /* paddingVer */
+    (10px, 13px, 15px, 20px)   /* paddingHor */ {
+        &:block(Menu):mod(size $size) {
+            font-size: $fontSize;
+            line-height: $lineHeight;
+
+            &:before,
+            &:after {
+                height: $paddingVert;
+            }
+
+            :block(MenuItem) + :block(MenuItemGroup) {
+                margin-top: $paddingVert;
+            }
+
+            :block(MenuItemGroup) {
+                padding: $paddingVert 0;
+
+                &:elem(title) {
+                    padding: 0 $paddingHor;
+                }
+            }
+        }
+    }
+
+    :block(MenuItemGroup) {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-width: 1px 0;
+
+        &:elem(title) {
+            color: #999;
+        }
+
+        & + :block(MenuItemGroup) {
+            border-top: 0;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+
+            border-bottom: 0;
+        }
+
+        &:first-child {
+            padding-top: 0;
+
+            border-top: 0;
+        }
+    }
+}

@@ -1,0 +1,82 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+}
+
+:block(App) {
+    display: flex;
+    flex-direction: column;
+    font: 13px/15px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    color: #000;
+
+    &:elem(main) {
+        display: flex;
+        flex-grow: 1;
+    }
+
+    &:elem(bar) {
+        padding: 15px;
+        background: #60a413;
+    }
+
+    &:elem(header) {
+        margin: 0;
+        padding: 0;
+        font-size: 22px;
+        color: #fff;
+
+        .DocLink
+        {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+
+    &:elem(version),
+    &:elem(footer) {
+        font-size: 10px;
+        font-family: Verdana, sans-serif;
+    }
+
+    &:elem(version) {
+        padding: 5px 7px;
+        color: #fff;
+        background: #447a08;
+        border-radius: 2px;
+        vertical-align: middle;
+    }
+
+    &:elem(content) {
+        position: relative;
+        flex-grow: 1;
+    }
+
+    &:elem(footer) {
+        padding: 7px 10px;
+        text-align: right;
+    }
+
+    &:elem(github-link) {
+        text-decoration: none;
+        color: #484646;
+
+        &:hover
+        {
+            color: #212121;
+        }
+
+        svg {
+            vertical-align: middle;
+            margin-top: -3px;
+            fill: #484646;
+        }
+
+        &:hover svg
+        {
+            fill: #212121;
+        }
+    }
+}

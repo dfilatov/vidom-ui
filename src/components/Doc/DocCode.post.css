@@ -1,0 +1,13 @@
+@import './prism.css';
+
+:block(DocCode) {
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #212121 !important;
+
+    &:mod(simple) {
+        color: #fff;
+        padding: 15px;
+    }
+}

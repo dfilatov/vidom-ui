@@ -1,0 +1,17 @@
+:block(DocListItem) {
+    position: relative;
+    margin: 0 0 0 15px;
+    padding: 0;
+
+    &:before
+    {
+        position: absolute;
+        left: -13px;
+        content: '›';
+        color: #a6a6a6;
+    }
+
+    &+& {
+        margin-top: 10px;
+    }
+}

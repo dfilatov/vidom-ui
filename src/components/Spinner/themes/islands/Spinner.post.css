@@ -1,0 +1,40 @@
+:block(Spinner):mod(theme islands) {
+    position: relative;
+
+    display: inline-block;
+
+    animation: Spinner_theme_islands 1s infinite linear;
+
+    backface-visibility: hidden; /* Accelerate animation */
+
+    box-sizing: border-box;
+
+    border: 2px solid transparent;
+    border-radius: 50%;
+    border-top-color: #fc0;
+    border-left-color: #fc0;
+
+    &:after {
+        content: '\00A0';
+    }
+
+    @each $size, $val in
+    (xs,   s,    m,    l,    xl),  /* size */
+    (16px, 24px, 28px, 32px, 38px) /* val */ {
+        &:block(Spinner):mod(size $size) {
+            line-height: $val;
+
+            width: $val;
+            height: $val;
+        }
+    }
+}
+
+@keyframes Spinner_theme_islands {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

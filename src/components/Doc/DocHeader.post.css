@@ -1,0 +1,19 @@
+:block(DocHeader) {
+    margin: 0;
+    padding: 0;
+
+    &:mod(level 2) {
+        margin: 25px 0 10px;
+        font-size: 20px;
+        line-height: 22px;
+    }
+
+    &:mod(level 4) {
+        margin: 20px 0 10px;
+        font-size: 15px;
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+}

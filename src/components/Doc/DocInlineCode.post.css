@@ -1,0 +1,5 @@
+:block(DocInlineCode) {
+    padding: 1px 2px;
+    font: 13px/16px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #666;
+}

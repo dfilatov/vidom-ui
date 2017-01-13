@@ -1,0 +1,15 @@
+@import './DocHeader.post.css';
+
+:block(DocAttrs) {
+    margin-left: -7px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 15px;
+
+    &:elem(th) {
+        font-weight: normal;
+        padding: 7px;
+        color: #666;
+        text-align: left;
+    }
+}

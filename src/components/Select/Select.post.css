@@ -1,0 +1,7 @@
+:block(Select) {
+    display: inline-block;
+}
+
+:block(Select):elem(menu) {
+    height: 100%;
+}

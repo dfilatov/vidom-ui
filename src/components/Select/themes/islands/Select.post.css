@@ -1,0 +1,86 @@
+:block(Select):mod(theme islands) {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    max-width: 100%;
+
+    vertical-align: bottom;
+
+    :block(Select):elem(button) {
+        width: 100%;
+
+        text-align: left;
+        vertical-align: top;
+
+        :block(Button):elem(text) {
+            display: block;
+
+            &:empty:before {
+                content: '\00a0';
+            }
+        }
+
+        &:block(Button):mod(size s) {
+            :block(Button):elem(text) {
+                padding-right: 22px;
+            }
+
+            :block(icon) {
+                width: 25px;
+            }
+        }
+
+
+        &:block(Button):mod(size m) {
+            :block(Button):elem(text) {
+                padding-right: 25px;
+            }
+
+            :block(icon) {
+                width: 31px;
+            }
+        }
+
+        &:block(Button):mod(size l) {
+            :block(Button):elem(text) {
+                padding-right: 29px;
+            }
+
+            :block(icon) {
+                width: 35px;
+            }
+        }
+
+        &:block(Button):mod(size xl) {
+            :block(Button):elem(text) {
+                padding-right: 33px;
+            }
+
+            :block(icon)
+            {
+                width: 39px;
+            }
+        }
+    }
+
+    :block(Select):elem(tick) {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        background-image: url(./arrow.svg);
+
+        transition: transform 0.1s ease-out;
+    }
+
+    &:block(Select):mod(size s) :block(Select):elem(tick) {
+        background-image: url(./arrow-s.svg);
+    }
+
+    &:block(Select):mod(opened) :block(Select):elem(tick) {
+        transform: rotate(-180deg);
+    }
+
+    &:block(Select):mod(width available) {
+        width: 100%;
+    }
+}

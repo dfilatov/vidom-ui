@@ -1,0 +1,20 @@
+:block(DocTab) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    padding: 15px 15px 0;
+    background: #fff;
+    overflow: auto;
+
+    &:mod(selected) {
+        display: block;
+    }
+
+    &>*:last-child /* for ff, it ignores bottom padding */
+    {
+        margin-bottom: 15px;
+    }
+}

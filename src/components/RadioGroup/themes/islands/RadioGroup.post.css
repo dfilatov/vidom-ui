@@ -1,0 +1,17 @@
+:block(RadioGroup):mod(theme islands) {
+    display: inline-block;
+
+    &:block(RadioGroup):mod(size m) {
+        line-height: 24px;
+    }
+
+    &:block(RadioGroup):mod(size l) {
+        line-height: 30px;
+    }
+
+    &:block(RadioGroup):mod(type button) {
+        display: inline-block;
+
+        white-space: nowrap;
+    }
+}

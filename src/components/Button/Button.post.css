@@ -1,0 +1,4 @@
+:block(Button)
+{
+    -moz-user-focus: ignore;
+}

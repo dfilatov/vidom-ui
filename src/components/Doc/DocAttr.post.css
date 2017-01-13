@@ -1,0 +1,30 @@
+@import './DocText.post.css';
+
+:block(DocAttr) {
+    &:elem(cell) {
+        padding: 6px 7px 8px;
+        vertical-align: baseline;
+        line-height: 20px;
+        transition: background .1s;
+
+        &:mod(type name) {
+            color: #7da729;
+        }
+
+        &:mod(type type) {
+            color: #6161af;
+        }
+
+        &:mod(type required) {
+            color: #e85253;
+            text-align: center;
+        }
+    }
+
+    &:hover
+    {
+        :block(DocAttr):elem(cell) {
+            background: #f5f5f5;
+        }
+    }
+}

@@ -1,0 +1,75 @@
+:block(Popup):mod(theme islands) {
+    visibility: hidden;
+
+    margin: -9999px 0 0 -9999px;
+
+    animation-duration: .1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1),
+                0 10px 20px -5px rgba(0, 0, 0, .4);
+
+    &:block(Popup):mod(visible) {
+        visibility: visible;
+
+        margin: 0;
+    }
+
+    @each $main, $secondary in
+    (bottom, bottom, bottom, top,  top,    top,   right, right,  right,  left, left,   left),  /* main */
+    (left,   center, right,  left, center, right, top,   center, bottom, top,  center, bottom) /* secondary */ {
+        &:block(Popup):mod(direction $(main)-$(secondary)) {
+            animation-name: Popup_theme_islands_$(main);
+            &:block(Popup):mod(visible) {
+              animation-name: Popup_theme_islands_$(main)_visible;
+            }
+        }
+    }
+}
+
+@each $direction, $axis, $offset in
+(bottom, top, right, left),
+(Y,      Y,   X,     X),
+(10,    -10,  10,   -10) {
+    @keyframes Popup_theme_islands_$(direction) {
+        0% {
+            visibility: visible;
+
+            margin: 0;
+
+            transform: translate$(axis)(0);
+
+            opacity: 1;
+        }
+
+        99% {
+            margin: 0;
+
+            transform: translate$(axis)($(offset)px);
+        }
+
+        100% {
+            visibility: hidden;
+
+            margin: -9999px 0 0 -9999px;
+
+            opacity: 0;
+        }
+    }
+
+    @keyframes Popup_theme_islands_$(direction)_visible {
+        0% {
+            opacity: 0;
+
+            transform: translate$(axis)($(offset)px);
+        }
+
+        100% {
+            opacity: 1;
+
+            transform: translate$(axis)(0);
+        }
+    }
+}

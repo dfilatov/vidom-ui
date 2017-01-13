@@ -1,0 +1,20 @@
+:block(Icon) {
+    display: inline-block;
+
+    text-align: center;
+
+    background: 50% no-repeat;
+
+    &:empty:after {
+        visibility: hidden;
+
+        content: '\00A0';
+    }
+
+    > img,
+    > svg {
+        margin: -5.15em 0 -5em; /* 0.15 — magic number, empirically found */
+
+        vertical-align: middle;
+    }
+}

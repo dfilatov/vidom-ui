@@ -1,0 +1,251 @@
+:block(TextInput):mod(theme islands) {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    position: relative;
+
+    display: inline-block;
+
+    background: rgba(0, 0, 0, 0.2);
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    /* Decorative element (inner background) */
+    &:before {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        bottom: 1px;
+        left: 1px;
+
+        content: '';
+
+        background: #fff;
+    }
+
+    :block(TextInput):elem(box) {
+        position: relative;
+
+        display: block;
+
+        -webkit-touch-callout: none;
+
+        user-select: none;
+    }
+
+    :block(TextInput):elem(control) {
+        font: inherit;
+        line-height: inherit;
+
+        position: relative;
+
+        display: inline-block;
+
+        box-sizing: border-box;
+        padding: 0;
+        width: 100%;
+
+        border: 0;
+        outline: none;
+        background: none;
+
+        -webkit-appearance: none;
+
+        /*лишние отступы у текста*/
+        &::-webkit-search-decoration {
+            -webkit-appearance: none;
+        }
+
+        /*нативный крестик*/
+        &::-webkit-search-cancel-button {
+            display: none;
+        }
+
+        &::-webkit-TextInput-placeholder {
+            color: #999;
+            text-indent: 0;
+        }
+
+        &::-moz-placeholder {
+            opacity: 1;
+            color: #999;
+        }
+
+        &::-ms-clear {
+            display: none;
+        }
+
+        &::-webkit-autofill {
+            border: 1px solid transparent;
+            background-clip: padding-box;
+        }
+    }
+
+    &:block(TextInput):mod(hasClear) :block(TextInput):elem(control) {
+        text-overflow: ellipsis;
+    }
+
+    :block(TextInput):elem(clear) {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        cursor: text;
+        transition: opacity 0.1s ease-out;
+
+        opacity: 0;
+        background: 50% 50% no-repeat;
+
+        &:mod(visible) {
+            opacity: 0.3;
+
+            &:hover {
+                cursor: pointer;
+
+                opacity: 1;
+            }
+        }
+    }
+
+    &:block(TextInput):mod(focused) {
+        z-index: 1;
+
+        &:before {
+            box-shadow: 0 0 0 1px #ffcc00, inset 0 0 0 1px #ffcc00;
+        }
+
+        :block(TextInput):elem(control) {
+            text-overflow: clip; /* fix ellipsis bug in Chrome */
+        }
+    }
+
+    &:block(TextInput):mod(disabled) {
+        background: rgba(0, 0, 0, 0.08);
+
+        &:before,
+        :block(TextInput):elem(clear) {
+            display: none;
+        }
+
+        :block(TextInput):elem(box),
+        :block(TextInput):elem(control) {
+            color: rgba(0, 0, 0, 0.4);
+            cursor: default;
+        }
+    }
+
+    &:block(TextInput):mod(size s) :block(TextInput):elem(clear),
+    &:block(TextInput):mod(size m) :block(TextInput):elem(clear) {
+        width: 24px;
+        height: 24px;
+
+        background-image: url(./clear_size_s.svg);
+        background-position: 7px 50%;
+    }
+
+    &:block(TextInput):mod(size s) {
+        font-size: 13px;
+        line-height: 16px;
+
+        :block(TextInput):elem(control) {
+            height: 24px;
+            padding: 0 7px;
+        }
+
+        &:block(TextInput):mod(hasClear) :block(TextInput):elem(control) {
+            padding-right: 24px;
+        }
+
+    }
+
+    &:block(TextInput):mod(size m) {
+        font-size: 13px;
+        line-height: 16px;
+
+        :block(TextInput):elem(control) {
+            height: 28px;
+            padding: 0 8px;
+        }
+
+        &:block(TextInput):mod(hasClear) :block(TextInput):elem(control) {
+            padding-right: 28px;
+        }
+
+        :block(TextInput):elem(clear) {
+            width: 28px;
+            height: 28px;
+
+            background-position: 9px 50%;
+        }
+    }
+
+    &:block(TextInput):mod(size l) :block(TextInput):elem(clear),
+    &:block(TextInput):mod(size xl) :block(TextInput):elem(clear) {
+        width: 32px;
+        height: 32px;
+
+        background-image: url(./clear_size_l.svg);
+        background-position: 9px 50%;
+    }
+
+    &:block(TextInput):mod(size l) {
+        font-size: 15px;
+        line-height: 18px;
+
+        :block(TextInput):elem(control) {
+            height: 32px;
+            padding: 0 10px;
+        }
+
+        &:block(TextInput):mod(hasClear) :block(TextInput):elem(control) {
+            padding-right: 32px;
+        }
+    }
+
+    &:block(TextInput):mod(size xl) {
+        font-size: 18px;
+        line-height: 22px;
+
+        :block(TextInput):elem(control) {
+            height: 38px;
+            padding: 0 12px;
+        }
+
+        &:block(TextInput):mod(hasClear) :block(TextInput):elem(control) {
+            padding-right: 38px;
+        }
+
+        :block(TextInput):elem(clear) {
+            width: 38px;
+            height: 38px;
+
+            background-position: 12px 50%;
+        }
+    }
+
+    &:block(TextInput):mod(hasClear) :block(TextInput):elem(control) {
+        padding-right: 0;
+    }
+
+    &:block(TextInput):mod(width available) {
+        width: 100%;
+    }
+
+    &:block(TextInput):mod(type password) :block(TextInput):elem(control) {
+        text-overflow: clip;
+    }
+}
+
+:block(control-group) {
+    :block(TextInput):mod(theme islands) {
+        &:before {
+            right: 0;
+        }
+    }
+
+    > :block(TextInput):mod(theme islands):last-child,
+    > :last-child :block(TextInput):mod(theme islands) {
+        &:before {
+            right: 1px;
+        }
+    }
+}

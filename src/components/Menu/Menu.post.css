@@ -1,0 +1,7 @@
+:block(Menu) {
+    overflow-y: auto;
+}
+
+:block(MenuItem) {
+    touch-action: manipulation;
+}
