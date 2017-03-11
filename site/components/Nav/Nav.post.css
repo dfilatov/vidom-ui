@@ -1,10 +1,11 @@
 :block(Nav) {
-    position: fixed;
+    position: absolute;
     z-index: 3;
     right: 0;
     top: 0;
     width: 50px;
     height: 50px;
+    overflow: hidden;
     transition: background .1s, width .1s, height .1s;
 
     &:elem(toggle) {
@@ -20,6 +21,7 @@
         float: right;
         height: 100%;
         overflow: auto;
+        -webkit-overflow-scrolling: touch;
         background: #212121;
         list-style: none;
         margin: 0;

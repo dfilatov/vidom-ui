@@ -38,6 +38,7 @@
         bottom: 0;
         padding: 15px 15px 0;
         overflow: auto;
+        -webkit-overflow-scrolling: touch;
 
         &>*:last-child { /* for ff, it ignores bottom padding */
             margin-bottom: 15px;

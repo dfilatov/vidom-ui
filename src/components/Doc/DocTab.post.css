@@ -8,6 +8,7 @@
     padding: 15px 15px 0;
     background: #fff;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
 
     &:mod(selected) {
         display: block;
