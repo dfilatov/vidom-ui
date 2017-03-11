@@ -1,5 +1,4 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    postcssRebem = require('rebem-css'),
+var postcssRebem = require('rebem-css'),
     postcssNested = require('postcss-nested'),
     postcssEach = require('postcss-each'),
     autoprefixer = require('autoprefixer');
@@ -14,7 +13,7 @@ module.exports = {
     module : {
         loaders: [
             { test : /\.js$/, loader : 'babel' },
-            { test : /\.css$/, loader : ExtractTextPlugin.extract('style', 'css?importLoaders=1!postcss') },
+            { test : /\.css$/, loaders : ['style', 'css?importLoaders=1!postcss'] },
             { test : /\.svg/, loader : 'svg-url-loader'}
         ]
     },
@@ -23,9 +22,6 @@ module.exports = {
             'vidom-components' : __dirname + '/../src'
         }
     },
-    plugins : [
-        new ExtractTextPlugin('bundle.css')
-    ],
     postcss : function() {
         return [postcssEach, postcssRebem, postcssNested, autoprefixer];
     },
