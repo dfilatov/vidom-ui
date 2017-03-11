@@ -1,4 +1,5 @@
-var postcssRebem = require('rebem-css'),
+var webpack = require('webpack'),
+    postcssRebem = require('rebem-css'),
     postcssNested = require('postcss-nested'),
     postcssEach = require('postcss-each'),
     autoprefixer = require('autoprefixer');
@@ -26,7 +27,11 @@ module.exports = {
         return [postcssEach, postcssRebem, postcssNested, autoprefixer];
     },
     devServer : {
-        contentBase : 'site',
-        historyApiFallback : true
-    }
+        contentBase : 'site'
+    },
+    plugins : [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`
+        })
+    ]
 };

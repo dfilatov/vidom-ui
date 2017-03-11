@@ -15,8 +15,9 @@ import SpinnerDoc from 'vidom-components/components/Spinner/doc';
 import TextAreaDoc from 'vidom-components/components/TextArea/doc';
 import TextInputDoc from 'vidom-components/components/TextInput/doc';
 
-const router = Susanin();
-let url = document.location.pathname,
+const BASE_URL = document.location.pathname,
+    router = Susanin();
+let url = BASE_URL + document.location.hash,
     listener;
 
 window.addEventListener('popstate', () => {
@@ -28,32 +29,32 @@ export default router;
 
 export const routes = {
     Intro : router.addRoute({
-        pattern : '/',
+        pattern : BASE_URL,
         data : { Component : Intro }
     })
 };
 
-[
-    ButtonDoc,
-    CheckBoxDoc,
-    CheckBoxGroupDoc,
-    IconDoc,
-    LinkDoc,
-    MenuDoc,
-    ModalDoc,
-    PopupDoc,
-    RadioDoc,
-    RadioGroupDoc,
-    SelectDoc,
-    SpinnerDoc,
-    TextAreaDoc,
-    TextInputDoc
-].reduce((res, Component) => {
-    const name = Component.name.substr(0, Component.name.length - 3);
+const componentDocs = {
+    Button : ButtonDoc,
+    CheckBox : CheckBoxDoc,
+    CheckBoxGroup : CheckBoxGroupDoc,
+    Icon : IconDoc,
+    Link : LinkDoc,
+    Menu : MenuDoc,
+    Modal : ModalDoc,
+    Popup : PopupDoc,
+    Radio : RadioDoc,
+    RadioGroup : RadioGroupDoc,
+    Select : SelectDoc,
+    Spinner : SpinnerDoc,
+    TextArea : TextAreaDoc,
+    TextInput : TextInputDoc
+};
 
+Object.keys(componentDocs).reduce((res, name) => {
     res[name] = router.addRoute({
-        pattern : `/${name}(/<tab>)`,
-        data : { Component },
+        pattern : `${BASE_URL}#!/${name}(/<tab>)`,
+        data : { Component : componentDocs[name] },
         defaults : { tab : 'Examples' }
     });
 
