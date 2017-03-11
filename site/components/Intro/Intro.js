@@ -30,7 +30,7 @@ export default function Intro() {
             </DocCode>
             <DocText>Also basic css should be included in your runtime:</DocText>
             <DocCode>@import 'vidom/index.css';</DocCode>
-            <DocText>Vidom UI is bundled with "islands" theme. To use it include additional css:</DocText>
+            <DocText>Vidom UI is bundled with <Link url="https://www.yandex.com/">Yandex</Link>'s islands theme. To use it just include additional css:</DocText>
             <DocCode>@import 'vidom/islands.css';</DocCode>
         </DocPage>
     );
