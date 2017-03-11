@@ -1,14 +1,5 @@
 import { Component } from 'vidom';
 import { Modal, Button } from 'vidom-components';
-// import Button from '../../../Button';
-// import Select from '../../Select';
-
-// <Select
-//     size="m"
-//     mode="radio"
-//     options={ [1, 2, 3, 4].map(i => ({ value : i, content : 'item-' + i })) }
-//     value={ 2 }
-// />
 
 export default class SimpleExample extends Component {
     onInit() {
@@ -23,7 +14,7 @@ export default class SimpleExample extends Component {
                 <Button
                     theme="islands"
                     size="m"
-                    onClick={ () => { this.setState({ visible : !this.state.visible }); } }
+                    onClick={ () => { this.setState({ visible : true }); } }
                     text={ (visible? 'Close' : 'Open') + ' modal' }
                 />
                 <Modal
@@ -33,9 +24,15 @@ export default class SimpleExample extends Component {
                     onHide={ () => { this.setState({ visible : false }) } }
                 >
                     <div style={ { padding : '50px' } }>
-                        <Button theme="islands" size="m" text="test1"/>
-                        <Button theme="islands" size="m" text="test2"/>
-                        <Button theme="islands" size="m" text="test3"/>
+                        <div style={ { width : '200px', marginBottom : '10px' } }>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </div>
+                        <Button
+                            theme="islands"
+                            size="m"
+                            onClick={ () => { this.setState({ visible : false }); } }
+                            text="Close me"
+                        />
                     </div>
                 </Modal>
             </fragment>
