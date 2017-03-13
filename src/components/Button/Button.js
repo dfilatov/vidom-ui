@@ -105,6 +105,7 @@ export default class Button extends Component {
             domAttrs.onMouseDown = this._onMouseDown;
             domAttrs.onMouseUp = this._onMouseUp;
             domAttrs.onClick = this._onMouseClick;
+            domAttrs.onTouchStart = noOp;
 
             if(focused) {
                 domAttrs.onKeyDown = this._onKeyDown;
