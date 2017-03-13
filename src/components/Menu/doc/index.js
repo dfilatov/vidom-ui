@@ -9,7 +9,7 @@ import simpleExampleCode from '!raw!./examples/SimpleExample.js';
 import groupExampleCode from '!raw!./examples/GroupExample.js';
 import radioModeExampleCode from '!raw!./examples/RadioModeExample.js';
 import checkModeExampleCode from '!raw!./examples/CheckModeExample.js';
-import radioCheckModeExampleCode from '!raw!./examples/radioCheckModeExample.js';
+import radioCheckModeExampleCode from '!raw!./examples/RadioCheckModeExample.js';
 
 export default function MenuDoc({ tab, onTabChange }) {
     return (

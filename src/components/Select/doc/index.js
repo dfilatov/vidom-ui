@@ -5,7 +5,7 @@ import RadioCheckModeExample from './examples/RadioCheckModeExample';
 import GroupExample from './examples/GroupExample';
 import DisabledExample from './examples/DisabledExample';
 import radioModeExampleCode from '!raw!./examples/RadioModeExample.js';
-import radioCheckModeExampleCode from '!raw!./examples/radioCheckModeExample.js';
+import radioCheckModeExampleCode from '!raw!./examples/RadioCheckModeExample.js';
 import groupExampleCode from '!raw!./examples/GroupExample.js';
 import disabledExampleCode from '!raw!./examples/DisabledExample.js';
 
