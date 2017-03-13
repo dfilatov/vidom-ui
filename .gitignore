@@ -1,5 +1,5 @@
 lib/
 node_modules/
 tools/_specs.js
-*.js
-*.css
+/*.js
+/*.css
