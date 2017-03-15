@@ -30,6 +30,12 @@ export default class Popup extends Component {
         });
     }
 
+    onChildContextRequest() {
+        return {
+            parentPopupHidden : this.state.hidden || this.context.parentPopupHidden
+        };
+    }
+
     onRender() {
         const {
                 attrs : { theme, visible, autoclosable, zIndexLevel, onHide },
@@ -37,7 +43,7 @@ export default class Popup extends Component {
             } = this,
             domAttrs = {
                 'class' : b({
-                    visible : visible && !hidden,
+                    visible : visible && !hidden && !this.context.parentPopupHidden,
                     direction : hidden? false : direction,
                     theme : theme || this.context.theme
                 }),
@@ -71,8 +77,8 @@ export default class Popup extends Component {
                 this._disableVisibilityConstraints();
             }
         }
-        else if(visible && !this.state.hidden && !dom.isVisible(this._getAnchor())) {
-            this.setState({ hidden : true });
+        else if(visible && this.state.hidden === dom.isVisible(this._getAnchor())) {
+            this.setState({ hidden : !this.state.hidden });
         }
     }
 
@@ -368,8 +374,9 @@ Popup.defaultAttrs = {
 };
 
 class PopupContent extends Component {
-    shouldUpdate(_, prevChildren) {
-        return this.attrs.visible && this.children !== prevChildren;
+    shouldUpdate(_, prevChildren, prevState, prevContext) {
+        return (this.attrs.visible && this.children !== prevChildren) ||
+            (this.context.parentPopupHidden !== prevContext.parentPopupHidden);
     }
 
     onRender() {
