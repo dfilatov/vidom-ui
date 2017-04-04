@@ -16,7 +16,7 @@ export default class Link extends Component {
         this.setState({ focused : this.attrs.focused });
     }
 
-    onAttrsChange() {
+    onAttrsReceive() {
         const { focused } = this.attrs;
 
         if(typeof focused !== 'undefined' && focused !== this.state.focused) {

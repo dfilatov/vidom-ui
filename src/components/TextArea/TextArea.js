@@ -16,7 +16,7 @@ export default class TextArea extends Component {
         this.setState({ focused });
     }
 
-    onAttrsChange() {
+    onAttrsReceive() {
         const { focused } = this.attrs;
 
         if(typeof focused !== 'undefined' && focused !== this.state.focused) {

@@ -113,7 +113,7 @@ Modal.defaultAttrs = {
 };
 
 class ModalContent extends Component {
-    shouldUpdate(_, prevChildren) {
+    shouldRerender(_, prevChildren) {
         return this.attrs.visible && this.children !== prevChildren;
     }
 

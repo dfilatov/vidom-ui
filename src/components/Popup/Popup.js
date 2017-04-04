@@ -374,7 +374,7 @@ Popup.defaultAttrs = {
 };
 
 class PopupContent extends Component {
-    shouldUpdate(_, prevChildren, prevState, prevContext) {
+    shouldRerender(_, prevChildren, prevState, prevContext) {
         return (this.attrs.visible && this.children !== prevChildren) ||
             (this.context.parentPopupHidden !== prevContext.parentPopupHidden);
     }

@@ -29,7 +29,7 @@ export default class Select extends Component {
         });
     }
 
-    onAttrsChange() {
+    onAttrsReceive() {
         const {
             attrs : { focused, disabled },
             state : { buttonFocused, menuFocused, opened }

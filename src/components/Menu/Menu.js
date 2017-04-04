@@ -30,7 +30,7 @@ export default class Menu extends Component {
         });
     }
 
-    onAttrsChange() {
+    onAttrsReceive() {
         const { focused } = this.attrs;
 
         if(typeof focused !== 'undefined' && focused !== this.state.focused) {

@@ -28,7 +28,7 @@ export default class Button extends Component {
         });
     }
 
-    onAttrsChange() {
+    onAttrsReceive() {
         const { focused, disabled } = this.attrs;
         let newState;
 
