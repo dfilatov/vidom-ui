@@ -96,7 +96,7 @@ export default class Button extends Component {
         }
 
         if(!disabled) {
-            focusableAttrs.focused = focused;
+            focusableAttrs.focused = !!focused;
             focusableAttrs.onFocus = this._onFocus;
             focusableAttrs.onBlur = this._onBlur;
 
@@ -159,8 +159,9 @@ export default class Button extends Component {
         this.setState({ hovered : false, pressed : false });
     }
 
-    _onMouseDown({ nativeEvent }) {
-        if(!nativeEvent.button) {
+    _onMouseDown(e) {
+        if(!e.nativeEvent.button) {
+            e.preventDefault(); // to prevent blur in safari
             this.setState({ pressed : true });
         }
     }
