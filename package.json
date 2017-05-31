@@ -62,6 +62,6 @@
     "start": "webpack-dev-server --config site/webpack.config.js --progress --colors --port 3000"
   },
   "dependencies": {
-    "vidom": "^0.9.4"
+    "vidom": "^0.9.9"
   }
 }
