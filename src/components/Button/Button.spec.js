@@ -98,6 +98,7 @@ describe('Button', () => {
             const buttonElem = rootElem.firstChild;
 
             expect(document.activeElement).to.be(buttonElem);
+
             expect(buttonElem.classList.contains('Button_focused_hard')).to.be.ok();
 
             mount(rootElem, <Button focused={ false }/>, () => {
@@ -112,13 +113,13 @@ describe('Button', () => {
         mount(rootElem, <Button/>, () => {
             const buttonElem = rootElem.firstChild;
 
-            simulate.focus(buttonElem);
+            simulate.focusin(buttonElem);
 
             afterUpdate(() => {
                 expect(document.activeElement).to.be(buttonElem);
                 expect(buttonElem.classList.contains('Button_focused_hard')).to.be.ok();
 
-                simulate.blur(buttonElem);
+                simulate.focusout(buttonElem);
 
                 afterUpdate(() => {
                     expect(document.activeElement).not.to.be(buttonElem);
